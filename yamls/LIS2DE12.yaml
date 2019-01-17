@@ -1,0 +1,102 @@
+name: LIS2DE12
+man: STMicro
+registers:
+    STATUS_AUX_REG:
+        address: 0x07
+        fields:
+            TOR: [6,1]
+            TDA: [2,1]
+    OUT_TEMP_L:
+        address: 0x0C
+        fields: {}
+    OUT_TEMP_H:
+        address: 0x0D
+        fields: {}
+    WHO_AM_I:
+        address: 0x0F
+        fields: {}
+    CTRL_REG0:
+        address: 0x1E
+        fields:
+            SDO_PU_DISC: [7,1]
+    TEMP_CFG_REG:
+        address: 0x1F
+        fields:
+            TEMP_EN: [6,2]
+    CTRL_REG1:
+        address: 0x20
+        fields:
+            ODR:    [4,4]
+            LPEN:   [3,1]
+            ZEN:    [2,1]
+            YEN:    [1,1]
+            XEN:    [0,1]
+    CTRL_REG2:
+        address: 0x21
+        fields:
+            HPM:        [6,2]
+            HPCF:       [4,2]
+            FDS:        [3,1]
+            HPCLICK:    [2,1]
+            HP_IA2:     [1,1]
+            HP_IA1:     [1,1]
+    CTRL_REG3:
+        address: 0x22
+        fields:
+            I1_CLICK:   [7,1]
+            I1_IA1:     [6,1]
+            I1_IA2:     [5,1]
+            I1_ZYXDA:   [4,1]
+            I1_WTM:     [2,1]
+            I1_OVERRUN: [1,1]
+    CTRL_REG4:
+        address: 0x23
+        fields:
+            BDU:    [7,1]
+            FS:     [4,2]
+            ST:     [1,2]
+            SIM:    [0,1]
+    CTRL_REG5:
+        address: 0x24
+        fields:
+            BOOT:       [7,1]
+            FIFO_EN:    [6,1]
+            LIR_INT1:   [3,1]
+            D4D_INT1:   [2,1]
+            LIR_INT2:   [1,1]
+            D4D_INT2:   [0,1]
+    CTRL_REG6:
+        address: 0x25
+        fields:
+            I2_CLICK:       [7,1]
+            I2_IA1:         [6,1]
+            I2_IA2:         [5,1]
+            I2_BOOT:        [4,1]
+            I2_ACT:         [3,1]
+            INT_POLARITY:   [1,1]
+    REFERENCE:
+        address: 0x26
+        fields: {}
+    STATUS_REG:
+        address: 0x27
+        fields:
+            ZYXOR:  [7,1]
+            ZOR:    [6,1]
+            YOR:    [5,1]
+            XOR:    [4,1]
+            ZYXDA:  [3,1]
+            ZDA:    [2,1]
+            YDA:    [1,1]
+            XDA:    [0,1]
+    FIFO_READ_START:
+        address: 0x28
+        fields: {}
+    OUT_X_H:
+        address: 0x29
+        fields: {}
+    OUT_Y_H:
+        address: 0x2B
+        fields: {}
+    OUT_Z_H:
+        address: 0x2D
+        fields: {}
