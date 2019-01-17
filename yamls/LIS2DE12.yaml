@@ -8,13 +8,10 @@ registers:
             TDA: [2,1]
     OUT_TEMP_L:
         address: 0x0C
-        fields: {}
     OUT_TEMP_H:
         address: 0x0D
-        fields: {}
     WHO_AM_I:
         address: 0x0F
-        fields: {}
     CTRL_REG0:
         address: 0x1E
         fields:
@@ -76,7 +73,6 @@ registers:
             INT_POLARITY:   [1,1]
     REFERENCE:
         address: 0x26
-        fields: {}
     STATUS_REG:
         address: 0x27
         fields:
@@ -90,13 +86,9 @@ registers:
             XDA:    [0,1]
     FIFO_READ_START:
         address: 0x28
-        fields: {}
     OUT_X_H:
         address: 0x29
-        fields: {}
     OUT_Y_H:
         address: 0x2B
-        fields: {}
     OUT_Z_H:
         address: 0x2D
-        fields: {}

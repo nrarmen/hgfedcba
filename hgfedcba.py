@@ -42,12 +42,15 @@ else:
 				registerPrefix = (deviceName + "_R_" + regName).upper()
 				registerDefine = (define + registerPrefix + " " + "0x" + format(register['address'], '02x').upper())
 				hf.write(registerDefine + "\n")
-				fields = register['fields']
-				for fieldName in fields:
-					field = fields[fieldName]
-					fieldPrefix = registerPrefix + "_F_" + fieldName.upper()
-					fieldDefine = (define + fieldPrefix + "_MASK " + "0x" + format((2**(int(field[1]))-1) << int(field[0]), '02x').upper())
-					hf.write(fieldDefine + "\n")
+				try:
+					fields = register['fields']
+					for fieldName in fields:
+						field = fields[fieldName]
+						fieldPrefix = registerPrefix + "_F_" + fieldName.upper()
+						fieldDefine = (define + fieldPrefix + "_MASK " + "0x" + format((2**(int(field[1]))-1) << int(field[0]), '02x').upper())
+						hf.write(fieldDefine + "\n")
+				except:
+					pass
 				hf.write("\n")
 			hf.write("#endif")
 
