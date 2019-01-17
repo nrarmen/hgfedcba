@@ -5,30 +5,36 @@ import os
 import yaml
 import string
 
-if len(sys.argv) != 2:
+if len(sys.argv) != 3:
 	print("Can only take 1 argument, a URL")
 	sys.exit()
 	
-path = sys.argv[1]
+ypath = sys.argv[1]
 
-if os.path.isdir(path):
+if os.path.isdir(ypath):
 	print("Can only accept a file path for now...")
 	sys.exit()
 else:
-	if not os.path.isfile(path):
+	if not os.path.isfile(ypath):
 		print("Cannot find file.")
 		sys.exit()
 	
-	with open(path, 'r') as yf:
+	with open(ypath, 'r') as yf:
 		# use safe_load instead load
 		deviceMap = yaml.safe_load(yf)
-		headerPath = os.path.splitext(path)[0] + "_p.h"
+		deviceName = deviceMap['name']
+		hpath = sys.argv[2]
+		headerPath = ""
+		if os.path.isdir(hpath):
+			headerPath = os.path.splitext(hpath)[0] + deviceName + "_p.h"
+		else:
+			headerPath = hpath 
+		
 		with open(headerPath, 'w') as hf:
 			headerGuardName = os.path.splitext(os.path.basename(headerPath))[0].upper() + "_H"
 			hf.write("#ifndef " + headerGuardName + "\n")
 			hf.write("#define " + headerGuardName + "\n")
 			hf.write("\n")
-			deviceName = deviceMap['name']
 			define = "#define "
 			registers = deviceMap['registers']
 			for regName in registers:
